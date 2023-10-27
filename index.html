@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <!-- site metas -->
+   <title>Automação de Script</title>
+   <!-- bootstrap css -->
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+   <!-- style css -->
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+   <div class="email_text">
+      <div class="row">
+         <h1 class="contact_taital">Tipo de conexão</h1>
+         <div class="col-md-6">
+            <input type="radio" name="cabo" id="gpom" class="botoes-bt" value="gpom" required>
+            <label for="gpom">GPOM</label>
+         </div>
+         <div class="col-md-6">
+            <input type="radio" name="cabo" id="serial" class="botoes-bt" value="serial" required>
+            <label for="serial">SERIAL V.35</label>
+         </div>
+      </div>
+      <div id="gpomOptions" class="row" style="display: none;">
+         <h1 class="contact_taital">Qual porta do GPOM ?</h1>
+         <div class="col-md-6">
+            <input type="radio" name="porta" id="ETH" class="botoes-bt" value="ETH" required>
+            <label for="ETH">PORTA ETH</label>
+         </div>
+         <div class="col-md-6">
+            <input type="radio" name="porta" id="GIGA" class="botoes-bt" value="GIGA" required>
+            <label for="GIGA">PORTA GIGA</label>
+         </div>
+      </div>
+
+
+      <div class="row">
+         <h1 class="contact_taital">Precisa de switch ?</h1>
+         <div class="col-md-6">
+            <input type="radio" name="switch" id="comSwitch" class="botoes-bt" value="comSwitch" required>
+            <label for="comSwitch">SIM</label>
+         </div>
+         <div class="col-md-6">
+            <input type="radio" name="switch" id="semSwitch" class="botoes-bt" value="semSwitch" required>
+            <label for="semSwitch">NÃO</label>
+         </div>
+      </div>
+
+
+      <form method="post">
+         <div class="row">
+            <h1 class="contact_taital">Insira os dados</h1>
+            <div class="col-md-6">
+               <div class="input-group">
+                  <input type="text" class="email-bt custom-input" name="Email" id="circuito">
+                  <label for="circuito" class="input-group_label">Nome do Circuito</label>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="input-group">
+                  <input type="text" class="email-bt custom-input" name="Email" id="ipoi">
+                  <label for="ipoi" class="input-group_label">IP fornecido pela OI</label>
+               </div>
+            </div>
+         </div>
+
+         <div class="button-container">
+            <button type="button" onclick="reescreverScript()"><a>Gerar</a></button>
+            <button type="button" id="copyButtonRouter" onclick="copyScriptRouter()" style="display: none;"><a>Copy Router</a></button>
+         </div>
+         <center>
+            <div class="card_gerar col-md-12">
+               <div class="circle"></div>
+               <div class="circle"></div>
+               <div class="massage-bt-wrapper">
+                  <pre class="card-inner" placeholder="SCRIPT REESCRITO" rows="8" id="scriptOutputRouter" name="Massage"></pre>
+               </div>
+            </div>
+         </center>
+   </div>
+   </form>
+   </div>
+   <!-- START SCRIPTS -->
+   <script src="js/Fonte.js"></script>
+   <script src="js/JSgeral.js"></script>
+</body>
+</html>
