@@ -15,7 +15,6 @@ function alterarScript(script, novo_CIRCUITO, novo_IPOI)
    script_alterado = script_alterado.replace(/<IP OI \-1>/g, diminuirIP(novo_IPOI, 1));
    return script_alterado;
 }
-// Função para copiar o script gerado
 function copyScriptRouter() {
   const scriptOutputRouter = document.getElementById('scriptOutputRouter');
   const range = document.createRange();
@@ -25,7 +24,7 @@ function copyScriptRouter() {
   selection.addRange(range);
   document.execCommand('copy');
   selection.removeAllRanges();
-  alert('Script do ROUTER copiado!');
+  alert('Script do ROTEADOR copiado!');
 }
 
 function showGpomOptions() {
@@ -43,7 +42,6 @@ const serialRadio = document.getElementById('serial');
 serialRadio.addEventListener('click', showGpomOptions);
 
 function onOptionSelected() {
-  // Esconde as opções gpom sempre que outra opção for selecionada
   const gpomOptionsDiv = document.getElementById('gpomOptions');
   gpomOptionsDiv.style.display = 'none';
 }
