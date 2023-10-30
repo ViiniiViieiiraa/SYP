@@ -18,61 +18,401 @@ function reescreverScript() {
 if (document.getElementById('serial').checked) {
   scriptInput = document.getElementById('comSwitch').checked ?
 `
-SELECIONADO:
-CABO SERIAL - COM SWITCH
-
-Circuito: <CIRCUITO>
-Ip Oi: <IP OI>
-Ip Oi -1: <IP OI \-1>
+sys
+#
+sysname <CIRCUITO>
+#
+domain default enable system
+#
+telnet server enable
+#
+password-recovery enable
+#
+vlan 1
+#
+domain system
+access-limit disable
+state active
+idle-cut disable
+self-service-url disable
+#
+user-group system
+group-attribute allow-guest
+#
+local-user admin
+password cipher Oi12345678
+authorization-attribute level 3
+service-type ssh telnet terminal
+#
+interface Aux0
+async mode flow
+link-protocol ppp
+interface serial 0/0
+ip address 10.201.91.150 255.255.255.252
+link-protocol ppp
+#
+interface NULL0
+#
+interface Vlan-interface1
+#
+ip route-static 0.0.0.0 0.0.0.0 <IP OI \-1>
+#
+snmp-agent
+snmp-agent local-engineid 800063A203CC3E5F38080E
+snmp-agent community write CGS31SPRO
+snmp-agent sys-info version all
+undo snmp-agent trap enable voice dial
+#
+load xml-configuration
+#
+load tr069-configuration
+#
+user-interface aux 0
+user-interface vty 0 4
+authentication-mode scheme
+Protocol inbound all
+idle-timeout 5 30
+terminal type vt100
+#
+return
+#
+s f
+#
 `
 :
 `
-SELECIONADO:
-CABO SERIAL - SEM SWITCH
-
-Circuito: <CIRCUITO>
-Ip Oi: <IP OI>
-Ip Oi -1: <IP OI \-1>
+sys
+#
+sysname <CIRCUITO>
+#
+domain default enable system
+#
+telnet server enable
+#
+password-recovery enable
+#
+vlan 1
+#
+domain system
+access-limit disable
+state active
+idle-cut disable
+self-service-url disable
+#
+user-group system
+group-attribute allow-guest
+#
+local-user admin
+password cipher Oi12345678
+authorization-attribute level 3
+service-type ssh telnet terminal
+#
+interface Aux0
+async mode flow
+link-protocol ppp
+interface serial 0/0
+ip address 10.201.91.150 255.255.255.252
+link-protocol ppp
+#
+interface NULL0
+#
+interface Vlan-interface1
+#
+ip route-static 0.0.0.0 0.0.0.0 <IP OI \-1>
+#
+snmp-agent
+snmp-agent local-engineid 800063A203CC3E5F38080E
+snmp-agent community write CGS31SPRO
+snmp-agent sys-info version all
+undo snmp-agent trap enable voice dial
+#
+load xml-configuration
+#
+load tr069-configuration
+#
+user-interface aux 0
+user-interface vty 0 4
+authentication-mode scheme
+Protocol inbound all
+idle-timeout 5 30
+terminal type vt100
+#
+return
+#
+s f
+#
 `
 ;}
 else if (document.getElementById('gpom').checked && document.getElementById('ETH').checked) {
   scriptInput = document.getElementById('comSwitch').checked ?
 `
-SELECIONADO:
-CABO GPOM - COM PORTA ETH - COM SWITCH
-
-Circuito: <CIRCUITO>
-Ip Oi: <IP OI>
-Ip Oi -1: <IP OI \-1>
+sys
+#
+sysname <CIRCUITO>
+#
+domain default enable system
+#
+telnet server enable
+#
+password-recovery enable
+#
+vlan 1
+#
+domain system
+access-limit disable
+state active
+idle-cut disable
+self-service-url disable
+#
+user-group system
+group-attribute allow-guest
+#
+local-user admin
+password cipher Oi12345678
+authorization-attribute level 3
+service-type ssh telnet terminal
+#
+interface Aux0
+async mode flow
+link-protocol ppp
+#
+interface Ethernet0/2
+port link-mode route
+#
+interface Ethernet0/2.221
+vlan-type dot1q vid 221
+ip address <IP OI> 255.255.255.252
+#
+interface NULL0
+#
+interface Vlan-interface1
+#
+ip route-static 0.0.0.0 0.0.0.0 <IP OI \-1>
+#
+snmp-agent
+snmp-agent local-engineid 800063A203CC3E5F38080E
+snmp-agent community write CGS31SPRO
+snmp-agent sys-info version all
+undo snmp-agent trap enable voice dial
+#
+load xml-configuration
+#
+load tr069-configuration
+#
+user-interface aux 0
+user-interface vty 0 4
+authentication-mode scheme
+Protocol inbound all
+idle-timeout 5 30
+terminal type vt100
+#
+return
+#
+s f
+#
 `
 :
 `
-SELECIONADO:
-CABO GPOM - COM PORTA ETH - SEM SWITCH
-
-Circuito: <CIRCUITO>
-Ip Oi: <IP OI>
-Ip Oi -1: <IP OI \-1>
+sys
+#
+sysname <CIRCUITO>
+#
+domain default enable system
+#
+telnet server enable
+#
+password-recovery enable
+#
+vlan 1
+#
+domain system
+access-limit disable
+state active
+idle-cut disable
+self-service-url disable
+#
+user-group system
+group-attribute allow-guest
+#
+local-user admin
+password cipher Oi12345678
+authorization-attribute level 3
+service-type ssh telnet terminal
+#
+interface Aux0
+async mode flow
+link-protocol ppp
+#
+interface Ethernet0/2
+port link-mode route
+#
+interface Ethernet0/2.221
+vlan-type dot1q vid 221
+ip address <IP OI> 255.255.255.252
+#
+interface Vlan-interface1
+#
+interface NULL0
+#
+ip route-static 0.0.0.0 0.0.0.0 <IP OI \-1>
+#
+snmp-agent
+snmp-agent local-engineid 800063A203CC3E5F38080E
+snmp-agent community write CGS31SPRO
+snmp-agent sys-info version all
+undo snmp-agent trap enable voice dial
+#
+load xml-configuration
+#
+load tr069-configuration
+#
+user-interface aux 0
+user-interface vty 0 4
+authentication-mode scheme
+Protocol inbound all
+idle-timeout 5 30
+terminal type vt100
+#
+return
+#
+s f
+#
 `
 ;}
 else if (document.getElementById('gpom').checked && document.getElementById('GIGA').checked) {
   scriptInput = document.getElementById('comSwitch').checked ?
 `
-SELECIONADO:
-CABO GPOM - COM PORTA GIGA - COM SWITCH
-
-Circuito: <CIRCUITO>
-Ip Oi: <IP OI>
-Ip Oi -1: <IP OI \-1>
+sys
+#
+sysname <CIRCUITO>
+#
+domain default enable system
+#
+telnet server enable
+#
+password-recovery enable
+#
+vlan 1
+#
+domain system
+access-limit disable
+state active
+idle-cut disable
+self-service-url disable
+#
+user-group system
+group-attribute allow-guest
+#
+local-user admin
+password cipher Oi12345678
+authorization-attribute level 3
+service-type ssh telnet terminal
+#
+interface Aux0
+async mode flow
+link-protocol ppp
+#
+interface g0/2
+port link-mode route
+#
+interface g0/2.221
+vlan-type dot1q vid 221
+ip address <IP OI> 255.255.255.252
+#
+interface NULL0
+#
+interface Vlan-interface1
+#
+ip route-static 0.0.0.0 0.0.0.0 <IP OI \-1>
+#
+snmp-agent
+snmp-agent local-engineid 800063A203CC3E5F38080E
+snmp-agent community write CGS31SPRO
+snmp-agent sys-info version all
+undo snmp-agent trap enable voice dial
+#
+load xml-configuration
+#
+load tr069-configuration
+#
+user-interface aux 0
+user-interface vty 0 4
+authentication-mode scheme
+Protocol inbound all
+idle-timeout 5 30
+terminal type vt100
+#
+return
+#
+s f
+#
 `
 :
 `
-SELECIONADO:
-CABO GPOM - COM PORTA GIGA - SEM SWITCH
-
-Circuito: <CIRCUITO>
-Ip Oi: <IP OI>
-Ip Oi -1: <IP OI \-1>
+sys
+#
+sysname <CIRCUITO>
+#
+domain default enable system
+#
+telnet server enable
+#
+password-recovery enable
+#
+vlan 1
+#
+domain system
+access-limit disable
+state active
+idle-cut disable
+self-service-url disable
+#
+user-group system
+group-attribute allow-guest
+#
+local-user admin
+password cipher Oi12345678
+authorization-attribute level 3
+service-type ssh telnet terminal
+#
+interface Aux0
+async mode flow
+link-protocol ppp
+#
+interface g0/2
+port link-mode route
+#
+interface g0/2.221
+vlan-type dot1q vid 221
+ip address <IP OI> 255.255.255.252
+#
+interface NULL0
+#
+interface Vlan-interface1
+#
+ip route-static 0.0.0.0 0.0.0.0 <IP OI \-1>
+#
+snmp-agent
+snmp-agent local-engineid 800063A203CC3E5F38080E
+snmp-agent community write CGS31SPRO
+snmp-agent sys-info version all
+undo snmp-agent trap enable voice dial
+#
+load xml-configuration
+#
+load tr069-configuration
+#
+user-interface aux 0
+user-interface vty 0 4
+authentication-mode scheme
+Protocol inbound all
+idle-timeout 5 30
+terminal type vt100
+#
+return
+#
+s f
+#
 `
 ;}  
 else  {
