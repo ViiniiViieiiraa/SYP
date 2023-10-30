@@ -70,7 +70,7 @@
 
          <div class="button-container">
             <button type="button" onclick="reescreverScript()"><a>Gerar</a></button>
-            <button type="button" id="copyButtonRouter" onclick="copyScriptRouter()" style="display: none;"><a>Copy Router</a></button>
+            <button type="button" id="copyButtonRouter" onclick="copyScriptRouter()" style="display: none;"><a>Copiar Script</a></button>
          </div>
          <center>
             <div class="card_gerar col-md-12">
@@ -84,8 +84,24 @@
    </div>
    </form>
    </div>
-   <!-- START SCRIPTS -->
    <script src="js/Fonte.js"></script>
    <script src="js/JSgeral.js"></script>
+   <script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const ipoiInput = document.getElementById('ipoi');
+
+  ipoiInput.addEventListener('input', function() {
+
+    let valor = ipoiInput.value;
+
+    valor = valor.replace(/[^\d.]/g, '');
+    if (valor.length > 15) {
+      valor = valor.slice(0, 15);
+    }
+
+    ipoiInput.value = valor;
+  });
+});
+   </script>
 </body>
 </html>
