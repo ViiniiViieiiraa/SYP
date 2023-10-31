@@ -49,7 +49,7 @@ interface Aux0
 async mode flow
 link-protocol ppp
 interface serial 0/0
-ip address 10.201.91.150 255.255.255.252
+ip address <IP OI> 255.255.255.252
 link-protocol ppp
 #
 interface NULL0
@@ -112,7 +112,7 @@ interface Aux0
 async mode flow
 link-protocol ppp
 interface serial 0/0
-ip address 10.201.91.150 255.255.255.252
+ip address <IP OI> 255.255.255.252
 link-protocol ppp
 #
 interface NULL0
