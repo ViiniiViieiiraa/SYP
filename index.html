@@ -54,18 +54,24 @@
       <form method="post">
          <div class="row">
             <h1 class="contact_taital">Insira os dados</h1>
-            <div class="col-md-6">
+            <div class="col-md-4">
                <div class="input-group">
                   <input type="text" class="email-bt custom-input" name="Email" id="circuito">
                   <label for="circuito" class="input-group_label">Nome do Circuito</label>
                </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                <div class="input-group">
                   <input type="text" class="email-bt custom-input" name="Email" id="ipoi">
                   <label for="ipoi" class="input-group_label">IP fornecido pela OI</label>
                </div>
             </div>
+            <div class="col-md-4" id="ipInputContainer" style="display: none;">
+               <div class="input-group">
+                   <input type="text" class="email-bt custom-input" name="Email" id="vlan">
+                   <label for="vlan" class="input-group_label">VLAN ID</label>
+               </div>
+           </div>
          </div>
 
          <div class="button-container">
@@ -87,11 +93,11 @@
    <script src="js/Fonte.js"></script>
    <script src="js/JSgeral.js"></script>
    <script>
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const ipoiInput = document.getElementById('ipoi');
+  const vlanInput = document.getElementById('vlan');
 
   ipoiInput.addEventListener('input', function() {
-
     let valor = ipoiInput.value;
 
     valor = valor.replace(/[^\d.]/g, '');
@@ -100,6 +106,17 @@
     }
 
     ipoiInput.value = valor;
+  });
+
+  vlanInput.addEventListener('input', function() {
+    let valor = vlanInput.value;
+
+    valor = valor.replace(/[^\d.]/g, '');
+    if (valor.length > 15) {
+      valor = valor.slice(0, 15);
+    }
+
+    vlanInput.value = valor;
   });
 });
    </script>

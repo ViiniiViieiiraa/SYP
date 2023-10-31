@@ -12,6 +12,7 @@ if(gpomSelected) {
 function reescreverScript() {
     const circuito = document.getElementById('circuito').value;
     const ipoi = document.getElementById('ipoi').value;
+    const vlan = document.getElementById('vlan').value;
 
 
 
@@ -179,8 +180,8 @@ link-protocol ppp
 interface Ethernet0/2
 port link-mode route
 #
-interface Ethernet0/2.221
-vlan-type dot1q vid 221
+interface Ethernet0/2.<VLAN>
+vlan-type dot1q vid <VLAN>
 ip address <IP OI> 255.255.255.252
 #
 interface NULL0
@@ -246,8 +247,8 @@ link-protocol ppp
 interface Ethernet0/2
 port link-mode route
 #
-interface Ethernet0/2.221
-vlan-type dot1q vid 221
+interface Ethernet0/2.<VLAN>
+vlan-type dot1q vid <VLAN>
 ip address <IP OI> 255.255.255.252
 #
 interface Vlan-interface1
@@ -315,8 +316,8 @@ link-protocol ppp
 interface g0/2
 port link-mode route
 #
-interface g0/2.221
-vlan-type dot1q vid 221
+interface g0/2.<VLAN>
+vlan-type dot1q vid <VLAN>
 ip address <IP OI> 255.255.255.252
 #
 interface NULL0
@@ -382,8 +383,8 @@ link-protocol ppp
 interface g0/2
 port link-mode route
 #
-interface g0/2.221
-vlan-type dot1q vid 221
+interface g0/2.<VLAN>
+vlan-type dot1q vid <VLAN>
 ip address <IP OI> 255.255.255.252
 #
 interface NULL0
@@ -420,7 +421,7 @@ else  {
 Selecione uma opção válida
 `
 ;}
-const script_alterado = alterarScript(scriptInput, circuito, ipoi);
+const script_alterado = alterarScript(scriptInput, circuito, ipoi, vlan);
 document.getElementById('scriptOutputRouter').innerText = script_alterado;
 
 const scriptOutputRouter = document.getElementById('scriptOutputRouter');
