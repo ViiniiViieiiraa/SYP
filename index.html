@@ -28,15 +28,14 @@
       <div id="gpomOptions" class="row" style="display: none;">
          <h1 class="contact_taital">Qual a porta do GPOM ?</h1>
          <div class="col-md-6">
-            <input type="radio" name="porta" id="ETH" class="botoes-bt" value="ETH" required>
+            <input type="radio" name="tipo" id="ETH" class="botoes-bt" value="ETH" required>
             <label for="ETH">PORTA ETH</label>
          </div>
          <div class="col-md-6">
-            <input type="radio" name="porta" id="GIGA" class="botoes-bt" value="GIGA" required>
+            <input type="radio" name="tipo" id="GIGA" class="botoes-bt" value="GIGA" required>
             <label for="GIGA">PORTA GIGA</label>
          </div>
       </div>
-
 
       <div class="row">
          <h1 class="contact_taital">Vai precisa de switch ?</h1>
@@ -49,7 +48,6 @@
             <label for="semSwitch">NÃO</label>
          </div>
       </div>
-
 
       <form method="post">
          <div class="row">
@@ -90,35 +88,7 @@
    </div>
    </form>
    </div>
-   <script src="js/Fonte.js"></script>
-   <script src="js/JSgeral.js"></script>
-   <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const ipoiInput = document.getElementById('ipoi');
-  const vlanInput = document.getElementById('vlan');
-
-  ipoiInput.addEventListener('input', function() {
-    let valor = ipoiInput.value;
-
-    valor = valor.replace(/[^\d.]/g, '');
-    if (valor.length > 15) {
-      valor = valor.slice(0, 15);
-    }
-
-    ipoiInput.value = valor;
-  });
-
-  vlanInput.addEventListener('input', function() {
-    let valor = vlanInput.value;
-
-    valor = valor.replace(/[^\d.]/g, '');
-    if (valor.length > 15) {
-      valor = valor.slice(0, 15);
-    }
-
-    vlanInput.value = valor;
-  });
-});
-   </script>
+   <script src="js/Fonte1.0.js"></script>
+   <script src="js/JSgeral1.0.js"></script>
 </body>
 </html>
